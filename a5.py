@@ -173,6 +173,10 @@ class Board:
 
         for c in range(self.size):
             remove_if_exists(self.rows[row][c], assignment)
+        
+        subgrid_coords = self.subgrid_coordinates(row, column)
+        for (r, c) in subgrid_coords:
+            remove_if_exists(self.rows[r][c], assignment)
 
 
 def DFS(state: Board) -> Board:
