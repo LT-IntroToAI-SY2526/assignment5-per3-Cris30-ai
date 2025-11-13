@@ -207,7 +207,12 @@ def DFS(state: Board) -> Board:
                 new_board: Board = copy.deepcopy(current_board)
                 new_board.update(row, col, val)
                 the_stack.push(new_board)
+    return None 
 
+
+
+from copy import deepcopy
+from stack_queue import Queue
 
 
 def BFS(state: Board) -> Board:
@@ -222,7 +227,32 @@ def BFS(state: Board) -> Board:
     Returns:
         either None in the case of invalid input or a solved board
     """
-    pass
+    if state is None:
+        return None
+    
+    frontier = Queue()
+    frontier.push(state)
+
+    while not frontier.is_empty()
+        current_board = frontier.pop()
+
+        if current_board.goal_test():
+            return current_board
+        if current_board.failure_test():
+            continue
+
+        row, col = current_board.find_most_constrained_cell()
+        cell = current_board.rows[row][col]
+
+        if isinstance(cell, int):
+            continue
+
+        for value in cell:
+            new_board = deepcopy(current_board)
+            new_board.update(row, col, value)
+            frontier.push(new_board)
+    return None
+
 
 
 if __name__ == "__main__":
