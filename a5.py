@@ -121,7 +121,7 @@ class Board:
                         min_row = row
                         min_col = col
                 #print(f"({min_row}, {min_col})")
-            return (min_row, min_col) 
+        return (min_row, min_col) 
 
 
 
@@ -152,7 +152,7 @@ class Board:
             True if we've placed all numbers, False otherwise
         """
 
-        return self.nums_nums_placed == self.size * self.size
+        return self.num_nums_placed == self.size * self.size
 
     def update(self, row: int, column: int, assignment: int) -> None:
         """Assigns the given value to the cell given by passed in row and column
@@ -166,7 +166,7 @@ class Board:
             column - index of the column to assign
             assignment - value to place at given row, column coordinate
         """
-        self.row[row][column] = assignment
+        self.rows[row][column] = assignment
         self.num_nums_placed += 1
 
         for r in range(self.size):
